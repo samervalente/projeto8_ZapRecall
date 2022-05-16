@@ -1,51 +1,40 @@
 import React from "react";
+import Footer from "../Footer";
+
+import Back from "./Back";
+import Front from "./Front";
+
+
 
 function FlashcardRender({questNum, questText, answer }) {
-  const [quest, setQuest] = React.useState("fechada");
+  const [quest, setQuest] = React.useState("front");
   const [questTexto, setQuestTexto] = React.useState(questText)
   const [vipot, setVipot] = React.useState("vipot")
   const [visible, setVisible] = React.useState("hidden")
-  
-  function Abrir() {
-    setQuest("aberta");
-  }
+  const [done, setDone] = React.useState(false)
+  const [nameIcon, setNameIcon] = React.useState("")
+  const [classIcon, setClassIcon] = React.useState("")
 
-  function Girar(){
+
+  function Turn(){
     setQuestTexto(answer)
     setVisible("result")
     setVipot("hidden")
   }
 
-  function Result(type){
-    switch(type){
-
-      case "Não":
-        alert("Não!")
-      case "Quase":
-        return (<><p>Quase</p></>)
-      case "Zap":
-        return (<>Zap!</>)
-    }
-  }
 
   return (
     <>
-      {quest === "fechada" ? (
-        <div className="questionElement" onClick={Abrir}>
-          <p>{questNum}</p>
-          <ion-icon name="play-outline"></ion-icon>
-        </div>
+      {quest === "front" ? (
+        <>
+        <Front setQuest={setQuest}  questNum={questNum} nameIcon={nameIcon} classIcon={classIcon} done={done} /> 
+     
+        </>
+       
       ) : (
-        <div className="questionElement crescer"  onClick={(Girar)}>
-          <p>{questTexto}</p>
-          <img className={vipot} onClick={(Girar)} src="images/Vector.png"/>
-          <div className={visible}>
-          <div className="nao" onClick={() => Result("Não")}>Não Lembrei</div>
-          <div className="quase" onClick={() => Result("Quase")} >Quase Não Lembrei</div>
-          <div className="lembrei" onClick={() => Result("Zap")}>Zap!</div>
-          </div>
-        </div>
+        <Back click={Turn} setDone={setDone} setQuest={setQuest} questTexto={questTexto} done={done} vipot={vipot} setNameIcon={setNameIcon} setClassIcon={setClassIcon} classIcon={classIcon}  visible={visible}   />
       )}
+        
     </>
   );
 }
@@ -88,5 +77,7 @@ export default function Flashcard() {
     />
   ));
 
-  return <>{elementsJSX}</>;
+  return <>{elementsJSX}
+       
+  </>;
 }

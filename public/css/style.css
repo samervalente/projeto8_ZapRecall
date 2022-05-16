@@ -80,7 +80,7 @@ body{
     flex-direction:column;
     align-items:center;
     justify-content:center;
-    
+    z-index:1;
 }
 
 .questionElement{
@@ -146,18 +146,43 @@ body{
     line-height: 14px;
 }
 
-.nao{
+.result .nao{
     background-color:#FF3030;
 }
 
-.quase{
+.result .quase{
     background-color: #FF922E;
     padding:5px;
     
 }
 
-.lembrei{
+.result .lembrei{
     background-color:#2FBE34;
 }
+
+.done{
+    font-weight: 700;
+    text-decoration:line-through;
+}
+
+.done.nao, .red{
+    color:#FF3030;
+   
+}
+
+.done.quase, .yellow{
+    color:#FF922E;
+   
+}
+.done.zap, .green{
+    color:#2FBE34;
+   
+}
+
+.icon{
+    width:23px;
+    height: 23px;
+}
+
 
 

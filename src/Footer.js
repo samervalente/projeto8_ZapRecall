@@ -1,12 +1,12 @@
+import React from "react"
 
-export default function Footer(){
-    
+export default function Footer({children}){
+  
     return(
         <>
-        <div className="footer">
-            <p>0/8 Concluidos</p>
+       <div className="footer" >
+        {children}
         </div>
-       
         </>
     )
 }
