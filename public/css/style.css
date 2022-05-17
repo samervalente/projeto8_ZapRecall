@@ -19,7 +19,8 @@ body{
     flex-direction:column;
     align-items:center;
     justify-content:space-between;
-   margin-bottom:100px;
+    margin-bottom:100px;
+   
    
 }
 
@@ -54,36 +55,45 @@ body{
     font-size:18px;
 }
 
-
-
+.header{
+    position:relative;
+}
 
 .top{
     display:flex;
     align-items:center;
     justify-content:space-between;
+    position:fixed;
 }
 
 .tela2 .top img{
     width:52px;
     margin-right:10px;
     height:60px;
+  
 }
 
-.footer{
+.AllFlashcards{
+    height:500px;
+    overflow-y: scroll;
+   
+}
+
+.AllFlashcards::-webkit-scrollbar{
+    display:none;
+}
+
+.AllFlashcards {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+.fix{
     position:fixed;
-    bottom:0;
-    background-color:rgb(255, 255, 255);
-    width:100%;
-    height:70px;
-    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    z-index:1;
+    margin-top:100px; 
 }
 
-.questionElement{
+.flashcard{
     height:65px;
     width: 300px;
     background-color: #FFFFFF;
@@ -98,16 +108,8 @@ body{
     padding: 0px 15px;
 }
 
-.footer p{
-    font-family: 'Recursive';
-    font-size:18px;
-}
-
-.crescer{
+.flashcard.aberta{
     height:130px;
-}
-
-.questionElement.crescer{
     background-color:#FFFFD4;
     font-size:18px;
     position:relative;
@@ -115,6 +117,24 @@ body{
     flex-direction: column;
     justify-content:space-around;
 }
+
+
+.Footer{
+    position:fixed;
+    bottom:0;
+    background-color:rgb(255, 255, 255);
+    width:100%;
+    height:70px;
+    box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    z-index:1;
+    font-family: 'Recursive';
+    font-size:18px;
+}
+
 
 .vipot{
     position:absolute;
@@ -165,16 +185,16 @@ body{
     text-decoration:line-through;
 }
 
-.done.nao, .red{
+.red{
     color:#FF3030;
    
 }
 
-.done.quase, .yellow{
+ .yellow{
     color:#FF922E;
    
 }
-.done.zap, .green{
+.green{
     color:#2FBE34;
    
 }
@@ -182,6 +202,11 @@ body{
 .icon{
     width:23px;
     height: 23px;
+}
+
+
+.msgResult{
+    text-align: center;
 }
 
 
