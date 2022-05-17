@@ -5,7 +5,7 @@ import Tela2 from "./Tela2"
 
 
 export default function App(){
-    const [screen, setScreen] = React.useState(2)
+    const [screen, setScreen] = React.useState(1)
 
     return (
         <>
